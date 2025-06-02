@@ -1,242 +1,133 @@
 <!DOCTYPE HTML>
 <!--
-	Twenty by HTML5 UP
+	Stellar by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
 	<head>
-		<title>My WebGIS</title>
+		<title>GIS Lab group 19</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-		
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/custom-styles.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
-	<body class="index is-preload">
-		<div id="page-wrapper">
+	<body class="is-preload">
 
-			<!-- Header -->
-				<header id="header" class="alt">
-					<h1 id="logo"><a href="index.html">My WebGIS</a></h1>
-					<nav id="nav"> 
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<h1> Mapping Air Quality<br>Land Cover Correlation and Population Exposure</h1>
+						<p> Geographic Information Systems<br />
+						A.A. 2024/25</p>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
 						<ul>
-							<li class="current"><a href="index.html">HOME</a></li>
-							<li class="current"><a href="pages/page2.html">Page 2</a></li>
-							<li class="current"><a href="pages/webgis.html">WebGIS</a></li>
+							<li><a href="#intro" class="active">Introduction</a></li>
+							<li><a href="#first">First Section</a></li>
+							<li><a href="#second">Second Section</a></li>
+							<li><a href="#cta">Get Started</a></li>
 						</ul>
 					</nav>
-				</header>
 
-			<!-- Banner -->
-				<div id="banner" class="custom-banner">
-					<div class="banner-transparency"></div>
+				<!-- Main -->
+					<div id="main">
 
-					<!--
-						".inner" is set up as an inline-block so it automatically expands
-						in both directions to fit whatever's inside it. This means it won't
-						automatically wrap lines, so be sure to use line breaks where
-						appropriate (<br />).
-					-->
-					<div class="inner">
+						<!-- Introduction p1 -->
+							<section id="intro" class="main">
+								<div class="spotlight">
+									<div class="content">
+										<header class="major">
+											<h2>What is air pollution?</h2>
+										</header>
+										<p>Air pollution refers to the presence of harmful substances in the atmosphere,
+											 leading to a decline in air quality and having adverse effects on human health,
+											  the ecological environment, and the climate system. The main pollutants include sulfur dioxide, 
+											  nitrogen oxides, inhalable particulate matter (such as PM2.5 and PM10), carbon monoxide,
+											   and volatile organic compounds. These substances primarily originate from industrial emissions,
+											    vehicle exhaust, construction activities, and agricultural operations. 
+												Air pollution can trigger respiratory diseases, contribute to cardiovascular problems, 
+												and even alter the structure of the atmosphere, thereby causing global warming and acid rain. 
+												Clean air is a basic human right; therefore, it is essential to measure and monitor air pollution.
+												 This not only helps identify pollution sources in a timely manner but also provides strong data support for policy-making and environmental management.</p>
+										<ul class="actions">
+											<li><a href="https://en.wikipedia.org/wiki/Air_pollution" class="button">Learn More</a></li>
+										</ul>
+									</div>
+									<span class="image"><img src="images/pic01.jpg" alt="" /></span>
+								</div>
+							</section>
 
-						<header>
-							<h2>My WebGIS</h2>
-						</header>
-						<p>Based on <strong>Twenty</strong>, a free
-						<br />
-						responsive template
-						<br />
-						by <a href="https://html5up.net">HTML5 UP</a>.</p>
-						<footer>
-							<ul class="buttons stacked">
-								<li><a href="#main" class="button fit scrolly">Tell Me More</a></li>
-							</ul>
-						</footer>
+						<!-- Introduction p2 -->
+							<section id="intro" class="main">
+									<div class="content">
+										<header class="major">
+											<h2>About Slovakia</h2>
+										</header>
+										<p>Slovakia is a landlocked country in Central Europe, renowned for its natural beauty and cultural heritage, 
+										     including the High Tatras mountains, dense forests, and historic castles. The country boasts a rich cultural legacy,
+										     blending Slavic traditions with influences from neighboring nations. Its capital, Bratislava, located along the Danube River, serves as the political, 
+										     cultural, and economic center of the country. Since joining the European Union in 2004, Slovakia has experienced steady economic growth and modernization.<br />
+									         However, the country continues to face significant challenges related to air pollution. Major air pollutants such as fine particulate matter (PM2.5 and PM10) and nitrogen oxides frequently exceed the health limits set by the European Union in many regions,
+									        especially during the winter months when a large number of households rely on solid fuel for heating. Industrial emissions, transportation, and outdated heating systems are the primary sources of pollution. 
+									        Although air quality has improved since the 1990s, air pollution still leads to thousands of premature deaths in Slovakia every year.
+										</p>
+								     </div>
+							</section>
+
+			            <!-- slovakia -->
+							<section id="intro" class="main">
+								<div class="content">
+									<header class="major">
+									       <h2>What we are going to do in the lab?</h2>
+								    </header>
+									     <p>This project focuses on analyzing historical time-series air quality data in Slovakia in relation to various land cover types,
+											 aiming to detect long-term environmental trends and patterns.
+											  By correlating pollutant concentrations with land use categories, we seek to understand how different landscapes influence or are affected by air pollution over time. 
+											  Additionally, we will assess population exposure to key air pollutants, placing special emphasis on regions where pollutant levels exceed health-based guidelines, 
+											  thereby identifying areas of potential public health concern. To ensure the results are accessible and informative,
+											   we will develop an interactive WebGIS platform and a dedicated project webpage. These tools will be used to visualize spatial and temporal patterns,
+											    communicate key findings effectively, and support data-driven decision-making for environmental planning and policy development.
+											</p>
+								</div>
+								<footer class="major">
+									<ul class="actions">
+											<li><a href="tools.html" class="button">Tools</a></li>
+											<li><a href="datas.html" class="button">Datas</a></li>
+											<li><a href="workflow.html" class="button">Let's explore </a></li>
+										</ul>
+								</footer>
+							</section>
 
 					</div>
 
-				</div>
-
-			<!-- Main -->
-				<article id="main">
-
-					<header class="special container">
-						<span class="icon solid fa-chart-bar"></span>
-						<h2>Usually here, you would put general information on your website or any interesting information.</h2>
-						<br />
-						<p>Templates are good because you do not have to focus on <strong>design</strong> but can focus on what is really important: communicating results.
-						<br />
-						This template is minimally designed, it is visually nice, and is easy to understand.
-						<br />
-						It is also released for free under the <a href="https://html5up.net/license">Creative Commons Attribution 3.0</a> license. Have fun!</p>
-					</header>
-
-					<!-- One -->
-						<div class="wrapper style2 container special-alt">
-							<div class="row gtr-50">
-								<div class="col-8 col-12-narrower">
-
-									<header>
-										<h2>Examples of icons that you can use using the library <strong>Font Awesome</strong>.</h2>
-									</header>
-									<p>This is not Latin or any weird language. It is sample text that developers use to fill the gaps of templates. It is called <strong>Lorem Ipsum</strong> <br><br>Lorem Ipsum dolor sit amet tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu comteger ut fermentum lorem. Lorem ipsum dolor sit amet. Sed tristique purus vitae volutpat ultrices. eu elit eget commodo.</p>
-									<footer>
-										<ul class="buttons">
-											<li><a href="https://fontawesome.com/v5/search?m=free" target="_blank" class="button">Find more icons</a></li>
-										</ul>
-									</footer>
-
-								</div>
-								<div class="col-4 col-12-narrower imp-narrower">
-
-									<ul class="featured-icons">
-										<li><span class="icon fa-clock"><span class="label">Feature 1</span></span></li>
-										<li><span class="icon solid fa-volume-up"><span class="label">Feature 2</span></span></li>
-										<li><span class="icon solid fa-laptop"><span class="label">Feature 3</span></span></li>
-										<li><span class="icon solid fa-inbox"><span class="label">Feature 4</span></span></li>
-										<li><span class="icon solid fa-lock"><span class="label">Feature 5</span></span></li>
-										<li><span class="icon solid fa-cog"><span class="label">Feature 6</span></span></li>
-									</ul>
-
-								</div>
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<h2>About US</h2>
+							<div style="width: 45%;">
+								 <p>Hangyun Wang :<a href="mailto:hangyun.wang@polimi.it">hangyun.wang@polimi.it</a></p>
+								 <p<a href="mailto:yujue.wang@polimi.it">yujue.wang@polimi.it</a></p>
+								 <p><a href="mailto:shoayb.sobhani@polimi.it">shoayb.sobhani@polimi.it</a></p>
 							</div>
-						</div>
-
-					<!-- Two -->
-						<div class="wrapper style1 container special">
-							<div class="row">
-								<div class="col-4 col-12-narrower">
-
-									<div>
-										<span class="icon solid featured fa-check"></span>
-										<header>
-											<h3>This is Something</h3>
-										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-									</div>
-
-								</div>
-								<div class="col-4 col-12-narrower">
-
-									<div>
-										<span class="icon solid featured fa-check"></span>
-										<header>
-											<h3>Also Something</h3>
-										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-									</div>
-
-								</div>
-								<div class="col-4 col-12-narrower">
-
-									<div>
-										<span class="icon solid featured fa-check"></span>
-										<header>
-											<h3>Probably Something</h3>
-										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-									</div>
-
-								</div>
-							</div>
-						</div>
-
-					<!-- Three -->
-						<div class="wrapper style3 container special">
-
-							<header class="major">
-								<h2>You can also remove stuff that you do not need!</h2>
-							</header>
-
-							<div class="row">
-								<div class="col-6 col-12-narrower">
-
-									<div>
-										<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-										<header>
-											<h3>A Really Fast Train</h3>
-										</header>
-										<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-									</div>
-
-								</div>
-								<div class="col-6 col-12-narrower">
-
-									<div>
-										<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
-										<header>
-											<h3>An Airport Terminal</h3>
-										</header>
-										<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-									</div>
-
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-6 col-12-narrower">
-
-									<div>
-										<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
-										<header>
-											<h3>Hyperspace Travel</h3>
-										</header>
-										<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-									</div>
-
-								</div>
-								<div class="col-6 col-12-narrower">
-
-									<div>
-										<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-										<header>
-											<h3>And Another Train</h3>
-										</header>
-										<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-									</div>
-
-								</div>
-							</div>
-						</div>
-
-				</article>
-
-			<!-- CTA -->
-				<div id="cta">
-					<header>
-						<h2>Ready to do <strong>something</strong>?</h2>
-						<p>This is an example website for the GIS Class of Politecnico di Milano - 2023/2024.</p>
-					</header>
-					<footer>
-						<ul class="buttons">
-							<li><a href="pages/webgis.html" class="button primary">Go To the WebGIS</a></li>
-							<li><a href="pages/page2.html" class="button">Go to page 2</a></li>
-						</ul>
+							
+						</section>
 					</footer>
 
-				</div>
-
-			<!-- Footer -->
-				<footer id="footer">
-
-					<ul class="copyright">
-						<li>&copy; My WebGIS</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-					</ul>
-
-				</footer>
-
-		</div>
+			</div>
 
 		<!-- Scripts -->
-		<script src="/js/jquery.min.js"></script>
-		<script src="/js/jquery.dropotron.min.js"></script>
-		<script src="/js/jquery.scrolly.min.js"></script>
-		<script src="/js/jquery.scrollex.min.js"></script>
-		<script src="/js/browser.min.js"></script>
-		<script src="/js/breakpoints.min.js"></script>
-		<script src="/js/util.js"></script>
-		<script src="/js/main.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
 	</body>
 </html>
