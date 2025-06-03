@@ -20,44 +20,85 @@ let osm = new Tile({
     source: new OSM()
 });
 
-// Colombia Administrative Boundaries
-let colombiaBoundary = new Image({
-    title: "Colombia Administrative level 0",
+// SlovakiaBoundary Boundary
+let SlovakiaBoundary = new Image({
+    title: "Slovakia__boundarie",
     source: new ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
-        params: { 'LAYERS': 'gis:COL_adm0' }
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',     
+        params: { 'LAYERS': 'gisgeoserver_19:Slovakia__boundaries' }
     }),
-    visible: false
+    visible: true
 });
 
-// Colombia Administrative level 1
-var colombiaDepartments = new Image({
-    title: "Colombia Administrative level 1",
+// Slovakia_LC_reclassiffied_2022
+var Slovakia_LC_reclassiffied_2022 = new Image({
+    title: "Slovakia_LC_reclassiffied_2022",
     source: new ImageWMS({
         url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
-        params: { 'LAYERS': 'gis:COL_adm1' }
+        params: { 'LAYERS': 'gisgeoserver_19:Slovakia_LC_reclassiffied_2022' }
     }),
     opacity: 0.5,
     visible: false
 });
 
-// Colombia Roads
-var colombiaRoads = new Image({
-    title: "Colombia Roads",
+// Slovakia_average_no2_2022
+var Slovakia_average_no2_2022 = new Image({
+    title: "Slovakia_average_no2_2022",
     source: new ImageWMS({
         url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
-        params: { 'LAYERS': 'gis:COL_roads' }
+        params: { 'LAYERS': 'gisgeoserver_19:Slovakia_average_no2_2022' }
     }),
     visible: false
 });
 
-// Colombia Rivers
-var colombiaRivers = new Image({
-    title: "Colombia Rivers",
+// Slovakia_no2_concentration_map_2020
+var Slovakia_no2_concentration_map_2020 = new Image({
+    title: "Slovakia_no2_concentration_map_2020",
     type: "overlay",
     source: new ImageWMS({
         url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
-        params: { 'LAYERS': 'gis:COL_rivers' }
+        params: { 'LAYERS': 'gisgeoserver_19:Slovakia_no2_concentration_map_2020' }
+    }),
+    visible: false
+});
+
+// Slovakia_no2_2017-2021_AAD_map _2022
+var Slovakia_no2_2017_2021AADmap = new Image({
+    title: "Slovakia_no2_2017-2021_AAD_map_2022",
+    source: new ImageWMS({
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+        params: { 'LAYERS': 'gisgeoserver_19:Slovakia_no2_2017-2021_AAD_map_2022' }
+    }),
+    visible: false
+});
+
+// Slovakia_average_pm2.5_2022
+var Slovakia_average_pm25_2022 = new Image({
+    title: "Slovakia_average_pm2.5_2022",
+    source: new ImageWMS({
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+        params: { 'LAYERS': 'gisgeoserver_19:Slovakia_average_pm2.5_2022' }
+    }),
+    visible: false
+});
+
+// Slovakia_pm2.5_concentration_map_2020
+var Slovakia_pm25_concentration_map_2020 = new Image({
+    title: "Slovakia_pm2.5_concentration_map_2020",
+    type: "overlay",
+    source: new ImageWMS({
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+        params: { 'LAYERS': 'gisgeoserver_19:Slovakia_pm2.5_concentration_map_2020' }
+    }),
+    visible: false
+});
+
+// Slovakia_pm2.5_2017-2021_AAD_map_2022
+var Slovakia_pm25_2017_2021AADmap = new Image({
+    title: "Slovakia_pm2.5_2017-2021_AAD_map_2022",
+    source: new ImageWMS({
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+        params: { 'LAYERS': 'gisgeoserver_19:Slovakia_pm2.5_2017-2021_AAD_map_2022' }
     }),
     visible: false,
     minResolution: 1000,
@@ -72,17 +113,21 @@ let basemapLayers = new Group({
 let overlayLayers = new Group({
     title: 'Overlay Layers',
     layers: [
-        colombiaBoundary,
-        colombiaDepartments,
-        colombiaRivers,
-        colombiaRoads
+        SlovakiaBoundary,
+        Slovakia_LC_reclassiffied_2022,
+        Slovakia_average_no2_2022,
+        Slovakia_no2_concentration_map_2020,
+        Slovakia_no2_2017_2021AADmap,
+        Slovakia_average_pm25_2022,
+        Slovakia_pm25_concentration_map_2020,
+        Slovakia_pm25_2017_2021AADmap
     ]
 });
 
 
 // Map Initialization
-let mapOrigin = fromLonLat([-74, 4.6]);
-let zoomLevel = 5;
+let mapOrigin = fromLonLat([19.5, 48.7]);
+let zoomLevel = 8;
 let map = new Map({
     target: document.getElementById('map'),
     //layers: [basemapLayers, overlayLayers],
