@@ -41,16 +41,6 @@ var Slovakia_LC_reclassiffied_2022 = new Image({
     visible: false
 });
 
-// Slovakia_average_no2_2022
-var Slovakia_average_no2_2022 = new Image({
-    title: "Slovakia_average_no2_2022",
-    source: new ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
-        params: { 'LAYERS': 'gisgeoserver_19:Slovakia_average_no2_2022' }
-    }),
-    visible: false
-});
-
 // Slovakia_no2_concentration_map_2020
 var Slovakia_no2_concentration_map_2020 = new Image({
     title: "Slovakia_no2_concentration_map_2020",
@@ -62,22 +52,12 @@ var Slovakia_no2_concentration_map_2020 = new Image({
     visible: false
 });
 
-// Slovakia_no2_2017-2021_AAD_map _2022
-var Slovakia_no2_2017_2021AADmap = new Image({
-    title: "Slovakia_no2_2017-2021_AAD_map_2022",
-    source: new ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
-        params: { 'LAYERS': 'gisgeoserver_19:Slovakia_no2_2017-2021_AAD_map_2022' }
-    }),
-    visible: false
-});
-
 // Slovakia_average_pm2.5_2022
-var Slovakia_average_pm25_2022 = new Image({
+var Slovak_average_pm25_2022 = new Image({
     title: "Slovakia_average_pm2.5_2022",
     source: new ImageWMS({
         url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
-        params: { 'LAYERS': 'gisgeoserver_19:Slovakia_average_pm2.5_2022' }
+        params: { 'LAYERS': 'gisgeoserver_19:Slovak_average_pm2.5_2022' }
     }),
     visible: false
 });
@@ -88,17 +68,7 @@ var Slovakia_pm25_concentration_map_2020 = new Image({
     type: "overlay",
     source: new ImageWMS({
         url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
-        params: { 'LAYERS': 'gisgeoserver_19:Slovakia_pm2.5_concentration_map_2020' }
-    }),
-    visible: false
-});
-
-// Slovakia_pm2.5_2017-2021_AAD_map_2022
-var Slovakia_pm25_2017_2021AADmap = new Image({
-    title: "Slovakia_pm2.5_2017-2021_AAD_map_2022",
-    source: new ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
-        params: { 'LAYERS': 'gisgeoserver_19:Slovakia_pm2.5_2017-2021_AAD_map_2022' }
+        params: { 'LAYERS': 'gisgeoserver_19:Slovak_pm2.5_concentration_map_2020' }
     }),
     visible: false,
     minResolution: 1000,
@@ -115,19 +85,16 @@ let overlayLayers = new Group({
     layers: [
         SlovakiaBoundary,
         Slovakia_LC_reclassiffied_2022,
-        Slovakia_average_no2_2022,
         Slovakia_no2_concentration_map_2020,
-        Slovakia_no2_2017_2021AADmap,
-        Slovakia_average_pm25_2022,
-        Slovakia_pm25_concentration_map_2020,
-        Slovakia_pm25_2017_2021AADmap
+        Slovak_average_pm25_2022,
+        Slovakia_pm25_concentration_map_2020
     ]
 });
 
 
 // Map Initialization
-let mapOrigin = fromLonLat([19.5, 48.7]);
-let zoomLevel = 8;
+let mapOrigin = fromLonLat([19.699, 48.669]);
+let zoomLevel = 8.3;
 let map = new Map({
     target: document.getElementById('map'),
     //layers: [basemapLayers, overlayLayers],
@@ -217,7 +184,7 @@ var wfsUrl = "https://www.gis-geoserver.polimi.it/geoserver/gis/wfs?" +
 // Then the Source and Layer definitions:
 let wfsSource = new VectorSource({});
 let wfsLayer = new Vector({
-    title: "Colombia Water Areas",
+    title: "Water Areas",
     source: wfsSource,
     visible: true,
     style: new Style({
@@ -247,11 +214,11 @@ overlayLayers.getLayers().extend([wfsLayer]);
 
 // Add the local static GeoJSON layer here:
 let staticGeoJSONSource = new VectorSource({
-    url: '../geojson/COL_adm2.geojson', 
+    url: '../geojson/Slovakia_l2.geojson', 
     format: new GeoJSON()
 });
 let staticGeoJSONLayer = new Vector({
-    title: "Colombia Municipalities",
+    title: "Slovakia County",
     source: staticGeoJSONSource,
     style: new Style({
         fill: new Fill({
