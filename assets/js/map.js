@@ -63,7 +63,7 @@ var Slovak_average_pm25_2022 = new Image({
 });
 
 // Slovakia_pm2.5_concentration_map_2020
-var Slovakia_pm25_concentration_map_2020 = new Image({
+var Slovak_pm25_concentration_map_2020 = new Image({
     title: "Slovakia_pm2.5_concentration_map_2020",
     type: "overlay",
     source: new ImageWMS({
@@ -87,7 +87,7 @@ let overlayLayers = new Group({
         Slovakia_LC_reclassiffied_2022,
         Slovakia_no2_concentration_map_2020,
         Slovak_average_pm25_2022,
-        Slovakia_pm25_concentration_map_2020
+        Slovak_pm25_concentration_map_2020
     ]
 });
 
