@@ -18,116 +18,331 @@
 			<div id="wrapper">
 
 				<!-- Header -->
-					<header id="header" class="alt">
-						<h1> Mapping Air Quality<br>Land Cover Correlation and Population Exposure</h1>
-						<p> Geographic Information Systems<br />
-						A.A. 2024/25</p>
+					<header id="header">
+						<h1>workflow</h1>
+					
 					</header>
-
-				<!-- Nav -->
-					<nav id="nav">
-						<ul>
-							<li><a href="../index.html" class="active">Introduction</a></li>
-							<li><a href="pages/workflow.html">workflow</a></li>
-							<li><a href="pages/results.html">Results</a></li>
-							<li><a href="pages/webgis.html">Webmap</a></li>
-						</ul>
-					</nav>
 
 				<!-- Main -->
 					<div id="main">
 
-						<!-- First Section -->
-							<section id="first" class="main special">
-								<header class="major">
-									<h2>Tools</h2>
-								</header>
-								<ul class="features">
-									<li>
-										 <a href="https://qgis.org/" target="_blank">
-											<img src="../images/QGIS.png" alt="QGIS Logo" style="width: 120px; height: 110px; border-radius: 50%;" />
-										</a>
-										<p>Free and open-source Geographic Information System that supports viewing, editing, and analysis of geospatial data.</p>
-									</li>
-									<li>
-										<a href="https://geoserver.org/" target="_blank">
-											<img src="../images/GeoServer.png" alt="GeoServer Logo" style="width:110px; height: 110px;border-radius: 50%;"/>
-										</a>
-										<p>GeoServer is an open source server for sharing geospatial data.</p>
-									</li>
-									<li>
-										<a href="https://openlayers.org/" terget="_blank">
-											<img src="../images/OpenLayers.png" alt="OpenLayers Logo" style="width:110px; height: 110px;border-radius: 50%;"/>
-										</a>
-										<p> It can display map tiles, vector data and markers loaded from any source. OpenLayers has been developed to further the use of geographic information of all kinds. </p>
-									</li>
-								</ul>
+						<!-- Content -->
+							<section id="content" class="main">
+
+								<!-- Text -->
+									<section>
+										<h2>Step 1: Mean Annual Aggregation</h2>
+										<p>In this step, we aggregated monthly pollutant raster datasets—specifically NO₂ and PM2.5—into yearly averages for each year from 2013 to 2022. This was done using raster calculator operations in QGIS. After computing the mean values, each yearly raster was clipped to the national boundary of Slovakia to ensure consistency in spatial extent. The result is a set of uniform, yearly air quality maps for further analysis and visualization.</p>
+								  <img src="images/no2/Slovak_average_no2_2022.jpg" style="width:100%; max-width:700px;" alt="NO2 Annual Mean 2022" />
+								  <img src="images/pm2.5/Slovak_average_pm2.5_2022.jpg" style="width:100%; max-width:700px;" alt="PM2.5 Annual Mean 2022" />
+										<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+										<hr />
+										<h2>Heading Level 2</h2>
+										<h3>Heading Level 3</h3>
+										<h4>Heading Level 4</h4>
+										<hr />
+										<h3>Blockquote</h3>
+										<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
+										<h3>Preformatted</h3>
+										<pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+    print 'Iteration ' + i;
+    deck.shuffle();
+    i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+									</section>
+
+								<!-- Lists -->
+									<section>
+										<h2>Lists</h2>
+										<div class="row">
+											<div class="col-6 col-12-medium">
+												<h3>Unordered</h3>
+												<ul>
+													<li>Dolor pulvinar magna etiam.</li>
+													<li>Sagittis sed lorem adipiscing.</li>
+													<li>Felis enim etiam feugiat.</li>
+													<li>Ipsum lorem nullam consequat.</li>
+												</ul>
+												<h3>Alternate</h3>
+												<ul class="alt">
+													<li>Dolor pulvinar magna etiam.</li>
+													<li>Sagittis sed lorem adipiscing.</li>
+													<li>Felis enim etiam feugiat.</li>
+													<li>Ipsum lorem nullam consequat.</li>
+												</ul>
+											</div>
+											<div class="col-6 col-12-medium">
+												<h3>Ordered</h3>
+												<ol>
+													<li>Dolor pulvinar etiam.</li>
+													<li>Etiam vel felis viverra.</li>
+													<li>Felis enim feugiat.</li>
+													<li>Dolor pulvinar etiam.</li>
+													<li>Etiam vel felis lorem.</li>
+													<li>Felis enim et feugiat.</li>
+												</ol>
+												<h3>Icons</h3>
+												<ul class="icons">
+													<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+													<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+													<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+													<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+													<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+												</ul>
+												<ul class="icons">
+													<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+													<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+													<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+													<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+													<li><a href="#" class="icon brands alt fa-dribbble"><span class="label">Dribbble</span></a></li>
+												</ul>
+											</div>
+										</div>
+										<h2>Actions</h2>
+										<div class="row">
+											<div class="col-6 col-12-medium">
+												<ul class="actions">
+													<li><a href="#" class="button primary">Default</a></li>
+													<li><a href="#" class="button">Default</a></li>
+												</ul>
+												<ul class="actions small">
+													<li><a href="#" class="button primary small">Small</a></li>
+													<li><a href="#" class="button small">Small</a></li>
+												</ul>
+												<ul class="actions stacked">
+													<li><a href="#" class="button primary">Default</a></li>
+													<li><a href="#" class="button">Default</a></li>
+												</ul>
+												<ul class="actions stacked">
+													<li><a href="#" class="button primary small">Small</a></li>
+													<li><a href="#" class="button small">Small</a></li>
+												</ul>
+											</div>
+											<div class="col-6 col-12-medium">
+												<ul class="actions stacked">
+													<li><a href="#" class="button primary fit">Default</a></li>
+													<li><a href="#" class="button fit">Default</a></li>
+												</ul>
+												<ul class="actions stacked">
+													<li><a href="#" class="button primary small fit">Small</a></li>
+													<li><a href="#" class="button small fit">Small</a></li>
+												</ul>
+											</div>
+										</div>
+									</section>
+
+								<!-- Table -->
+									<section>
+										<h2>Table</h2>
+										<h3>Default</h3>
+										<div class="table-wrapper">
+											<table>
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Description</th>
+														<th>Price</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>Item One</td>
+														<td>Ante turpis integer aliquet porttitor.</td>
+														<td>29.99</td>
+													</tr>
+													<tr>
+														<td>Item Two</td>
+														<td>Vis ac commodo adipiscing arcu aliquet.</td>
+														<td>19.99</td>
+													</tr>
+													<tr>
+														<td>Item Three</td>
+														<td> Morbi faucibus arcu accumsan lorem.</td>
+														<td>29.99</td>
+													</tr>
+													<tr>
+														<td>Item Four</td>
+														<td>Vitae integer tempus condimentum.</td>
+														<td>19.99</td>
+													</tr>
+													<tr>
+														<td>Item Five</td>
+														<td>Ante turpis integer aliquet porttitor.</td>
+														<td>29.99</td>
+													</tr>
+												</tbody>
+												<tfoot>
+													<tr>
+														<td colspan="2"></td>
+														<td>100.00</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+
+										<h3>Alternate</h3>
+										<div class="table-wrapper">
+											<table class="alt">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Description</th>
+														<th>Price</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>Item One</td>
+														<td>Ante turpis integer aliquet porttitor.</td>
+														<td>29.99</td>
+													</tr>
+													<tr>
+														<td>Item Two</td>
+														<td>Vis ac commodo adipiscing arcu aliquet.</td>
+														<td>19.99</td>
+													</tr>
+													<tr>
+														<td>Item Three</td>
+														<td> Morbi faucibus arcu accumsan lorem.</td>
+														<td>29.99</td>
+													</tr>
+													<tr>
+														<td>Item Four</td>
+														<td>Vitae integer tempus condimentum.</td>
+														<td>19.99</td>
+													</tr>
+													<tr>
+														<td>Item Five</td>
+														<td>Ante turpis integer aliquet porttitor.</td>
+														<td>29.99</td>
+													</tr>
+												</tbody>
+												<tfoot>
+													<tr>
+														<td colspan="2"></td>
+														<td>100.00</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+									</section>
+
+								<!-- Buttons -->
+									<section>
+										<h3>Buttons</h3>
+										<ul class="actions">
+											<li><a href="#" class="button primary">Primary</a></li>
+											<li><a href="#" class="button">Default</a></li>
+										</ul>
+										<ul class="actions">
+											<li><a href="#" class="button large">Large</a></li>
+											<li><a href="#" class="button">Default</a></li>
+											<li><a href="#" class="button small">Small</a></li>
+										</ul>
+										<ul class="actions fit">
+											<li><a href="#" class="button primary fit">Fit</a></li>
+											<li><a href="#" class="button fit">Fit</a></li>
+											<li><a href="#" class="button fit">Fit</a></li>
+										</ul>
+										<ul class="actions fit small">
+											<li><a href="#" class="button primary fit small">Fit + Small</a></li>
+											<li><a href="#" class="button fit small">Fit + Small</a></li>
+											<li><a href="#" class="button fit small">Fit + Small</a></li>
+										</ul>
+										<ul class="actions">
+											<li><a href="#" class="button primary icon solidfa-download">Icon</a></li>
+											<li><a href="#" class="button icon solid fa-upload">Icon</a></li>
+											<li><a href="#" class="button icon solid fa-save">Icon</a></li>
+										</ul>
+										<ul class="actions">
+											<li><span class="button primary disabled">Disabled</span></li>
+											<li><span class="button disabled">Disabled</span></li>
+										</ul>
+									</section>
+
+								<!-- Form -->
+									<section>
+										<h2>Form</h2>
+										<form method="post" action="#">
+											<div class="row gtr-uniform">
+												<div class="col-6 col-12-xsmall">
+													<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
+												</div>
+												<div class="col-6 col-12-xsmall">
+													<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
+												</div>
+												<div class="col-12">
+													<select name="demo-category" id="demo-category">
+														<option value="">- Category -</option>
+														<option value="1">Manufacturing</option>
+														<option value="1">Shipping</option>
+														<option value="1">Administration</option>
+														<option value="1">Human Resources</option>
+													</select>
+												</div>
+												<div class="col-4 col-12-small">
+													<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+													<label for="demo-priority-low">Low</label>
+												</div>
+												<div class="col-4 col-12-small">
+													<input type="radio" id="demo-priority-normal" name="demo-priority">
+													<label for="demo-priority-normal">Normal</label>
+												</div>
+												<div class="col-4 col-12-small">
+													<input type="radio" id="demo-priority-high" name="demo-priority">
+													<label for="demo-priority-high">High</label>
+												</div>
+												<div class="col-6 col-12-small">
+													<input type="checkbox" id="demo-copy" name="demo-copy">
+													<label for="demo-copy">Email me a copy</label>
+												</div>
+												<div class="col-6 col-12-small">
+													<input type="checkbox" id="demo-human" name="demo-human" checked>
+													<label for="demo-human">Not a robot</label>
+												</div>
+												<div class="col-12">
+													<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+												</div>
+												<div class="col-12">
+													<ul class="actions">
+														<li><input type="submit" value="Send Message" class="primary" /></li>
+														<li><input type="reset" value="Reset" /></li>
+													</ul>
+												</div>
+											</div>
+										</form>
+									</section>
+
+								<!-- Image -->
+									<section>
+										<h2>Image</h2>
+										<h3>Fit</h3>
+										<div class="box alt">
+											<div class="row gtr-uniform">
+												<div class="col-12"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
+											</div>
+										</div>
+										<h3>Left &amp; Right</h3>
+										<p><span class="image left"><img src="images/pic05.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent lorem ipsum dolor sit amet veroeros consequat. Etiam tempus lorem ipsum.</p>
+										<p><span class="image right"><img src="images/pic06.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus..</p>
+									</section>
+
 							</section>
 
-						<!-- Second Section -->
-							<section id="second" class="main special">
-								<header class="major">
-									<h2>Data</h2>
-
-								</header>
-								</header>
-								  <div class="table-wrapper">
-									<table>
-									  <thead>
-										<tr>
-										  <th>Name</th>
-										  <th>Source</th>
-										  <th>Description</th>
-										  <th>Download</th>
-										</tr>
-									  </thead>
-									  <tbody>
-										<tr>
-										  <td>Air Quality Data</td>
-										  <td>CAMS Reanalysis</td>
-										  <td>
-											Monthly NO₂, PM2.5, PM10 concentrations (2013–2022). December 2022 data must be downloaded and processed manually.
-										  </td>
-										  <td><a href="https://ads.atmosphere.copernicus.eu/datasets/cams-europe-air-quality-reanalyses?tab=overview" target="_blank">Download</a></td>
-										</tr>
-										<tr>
-										  <td>Land Cover Data</td>
-										  <td>ESA CCI / CDS</td>
-										  <td>
-											Annual land cover classification (2013–2022), 300m resolution. 2022 is mandatory. Europe suggested bbox: N72, W-25, S30, E45.
-										  </td>
-										  <td><a href="https://cds.climate.copernicus.eu/datasets/satellite-land-cover" target="_blank">Download</a></td>
-										</tr>
-										<tr>
-										  <td>Population Data</td>
-										  <td>WorldPop</td>
-										  <td>
-											2020 unconstrained population raster data, 100m resolution.
-										  </td>
-										  <td>
-											<a href="https://www.worldpop.org/about" target="_blank">WorldPop</a><br/>
-											<a href="https://hub.worldpop.org/geodata/listing?id=29" target="_blank">Hub</a>
-										  </td>
-										</tr>
-										<tr>
-										  <td>Case Study Area</td>
-										  <td>Provided by Project Team</td>
-										  <td>
-											Boundary vector layer of assigned countries, distributed as GeoPackage.
-										  </td>
-										  <td><a href="https://polimi365-my.sharepoint.com/:u:/g/personal/10460721_polimi_it/EchCont0Ay9FpdWpQ764r0sBUpUyzBx5lm7F5yp221ytTQ?e=g5XjYo" target="_blank">Download</a></td>
-										</tr>
-									  </tbody>
-									</table>
-									<li><a href="generic.html" class="button">Go back</a></li>
-									<li><a href="../pages/workflow.html" class="button">Let's explore</a></li>
-								  </div>
-								</div>
-							  </section>
-								
-							</section>
-
-						
+					</div>
 
 				<!-- Footer -->
 					<footer id="footer">
@@ -135,7 +350,7 @@
 							<h2>Aliquam sed mauris</h2>
 							<p>Sed lorem ipsum dolor sit amet et nullam consequat feugiat consequat magna adipiscing tempus etiam dolore veroeros. eget dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula erat egestas velit, vitae tincidunt odio.</p>
 							<ul class="actions">
-								<li><a href="generic.html" class="button">Learn More</a></li>
+								<li><a href="#" class="button">Learn More</a></li>
 							</ul>
 						</section>
 						<section>
