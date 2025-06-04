@@ -174,12 +174,12 @@ basemapLayers.getLayers().extend([
 
 // Add the WFS layer here:
 // First, the URL definition:
-var wfsUrl = "https://www.gis-geoserver.polimi.it/geoserver/gis/wfs?" + 
+var wfsUrl = "https://www.gis-geoserver.polimi.it/geoserver/gisgeoserver_19/wfs?" + 
 "service=WFS&" + 
 "version=2.0.0&" +
 "request=GetFeature&" + 
-"typeName=gis:COL_water_areas&" + 
-"srsname=EPSG:3857&" + 
+"typeName=gisgeoserver_19:SVK_water_lines_dcw&" + 
+"srsname=EPSG:404000&" + 
 "outputFormat=application/json";
 // Then the Source and Layer definitions:
 let wfsSource = new VectorSource({});
@@ -214,7 +214,7 @@ overlayLayers.getLayers().extend([wfsLayer]);
 
 // Add the local static GeoJSON layer here:
 let staticGeoJSONSource = new VectorSource({
-    url: '../geojson/Slovakia_l2.geojson', 
+    url: '../docs/geojson/Slovakia_adm2.geojson', 
     format: new GeoJSON()
 });
 let staticGeoJSONLayer = new Vector({
