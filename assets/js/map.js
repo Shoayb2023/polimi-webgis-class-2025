@@ -41,6 +41,18 @@ var Slovakia_LC_reclassiffied_2022 = new Image({
     visible: false
 });
 
+// 
+// Slovakia_average_no2_2022
+var Slovakia_average_no2_2022 = new Image({
+    title: "Slovakia_average_no2_2022",
+    type: "overlay",
+    source: new ImageWMS({
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+        params: { 'LAYERS': 'gisgeoserver_19:Slovakia_average_no2_2022' }
+    }),
+    visible: false
+});
+
 // Slovakia_no2_concentration_map_2020
 var Slovakia_no2_concentration_map_2020 = new Image({
     title: "Slovakia_no2_concentration_map_2020",
@@ -52,16 +64,6 @@ var Slovakia_no2_concentration_map_2020 = new Image({
     visible: false
 });
 
-// Slovakia_average_pm2.5_2022
-var Slovak_average_pm25_2022 = new Image({
-    title: "Slovakia_average_pm2.5_2022",
-    source: new ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
-        params: { 'LAYERS': 'gisgeoserver_19:Slovak_average_pm2.5_2022' }
-    }),
-    visible: false
-});
-
 // Slovakia_pm2.5_concentration_map_2020
 var Slovak_pm25_concentration_map_2020 = new Image({
     title: "Slovakia_pm2.5_concentration_map_2020",
@@ -69,6 +71,28 @@ var Slovak_pm25_concentration_map_2020 = new Image({
     source: new ImageWMS({
         url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
         params: { 'LAYERS': 'gisgeoserver_19:Slovak_pm2.5_concentration_map_2020' }
+    }),
+    visible: false
+});
+
+// Slovak_CAMS_pm25_2022_12
+var Slovak_CAMS_pm25_2022_12 = new Image({
+    title: "Slovakia_CAMS_pm2.5_2022_12",
+    type: "overlay",
+    source: new ImageWMS({
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+        params: { 'LAYERS': 'gisgeoserver_19:Slovak_CAMS_pm2.5_2022_12' }
+    }),
+    visible: false
+});
+
+// Slovak_CAMS_pm25_2022_12
+var SLOVAKIA_pm10_concentration_map_2020 = new Image({
+    title: "SLOVAKIA_pm10_concentration_map_2020",
+    type: "overlay",
+    source: new ImageWMS({
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+        params: { 'LAYERS': 'gisgeoserver_19:SLOVAKIA_pm10_concentration_map_2020' }
     }),
     visible: false,
     minResolution: 1000,
@@ -85,9 +109,11 @@ let overlayLayers = new Group({
     layers: [
         SlovakiaBoundary,
         Slovakia_LC_reclassiffied_2022,
+        Slovakia_average_no2_2022,
         Slovakia_no2_concentration_map_2020,
-        Slovak_average_pm25_2022,
-        Slovak_pm25_concentration_map_2020
+        Slovak_CAMS_pm25_2022_12,
+        Slovak_pm25_concentration_map_2020,
+        SLOVAKIA_pm10_concentration_map_2020
     ]
 });
 
