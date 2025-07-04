@@ -33,6 +33,16 @@ let SlovakiaBoundary = new Image({
 });
 
 
+// SlovakiaBoundary Boundary
+let AAD	 = new Image({
+    title: "Pm10 AAD",
+    source: new ImageWMS({
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',     
+        params: { 'LAYERS': 'gisgeoserver_19:Slovakia_pm10 _2017-2021_AAD_map _2022' }
+    }),
+    visible: false
+});
+
 // bivariate__atatis
 let bivariateatatis = new Image({
     title: "bivariate__atatis",
@@ -139,7 +149,8 @@ let overlayLayers = new Group({
         Slovak_pm25_concentration_map_2020,
         SLOVAKIA_pm10_concentration_map_2020,
         SLOVAKIA_pm10_concentration_map_2022,
-        bivariateatatis
+        bivariateatatis,
+        AAD
 
     ]
 });
