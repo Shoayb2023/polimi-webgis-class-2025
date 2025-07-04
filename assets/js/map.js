@@ -12,6 +12,8 @@ import { createStringXY } from 'ol/coordinate';
 import { Style, Fill, Stroke } from 'ol/style';
 
 
+
+
 // OpenStreetMap base map
 let osm = new Tile({
     title: "Open Street Map",
@@ -29,6 +31,18 @@ let SlovakiaBoundary = new Image({
     }),
     visible: true
 });
+
+
+// bivariate__atatis
+let bivariateatatis = new Image({
+    title: "bivariate__atatis",
+    source: new ImageWMS({
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',     
+        params: { 'LAYERS': 'gisgeoserver_19:Slovakia_pm10_2020_bivariate' }
+    }),
+    visible: false
+});
+
 
 // Slovakia_LC_reclassiffied_2022
 var Slovakia_LC_reclassiffied_2022 = new Image({
@@ -81,7 +95,7 @@ var Slovak_CAMS_pm25_2022_12 = new Image({
     type: "overlay",
     source: new ImageWMS({
         url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
-        params: { 'LAYERS': 'gisgeoserver_19:Slovak_CAMS_pm2.5_2022_12' }
+        params: { 'LAYERS': 'gisgeoserver_19:Slovak_CAMS_pm2.5_2022_12', 'STYLES': 'default' }
     }),
     visible: false
 });
@@ -95,9 +109,20 @@ var SLOVAKIA_pm10_concentration_map_2020 = new Image({
         params: { 'LAYERS': 'gisgeoserver_19:SLOVAKIA_pm10_concentration_map_2020' }
     }),
     visible: false,
-    minResolution: 1000,
-    maxResolution: 5000
 });
+
+// Slovak_CAMS_pm25_2022_12
+var SLOVAKIA_pm10_concentration_map_2022 = new Image({
+    title: "Slovakia average PM10 2022",
+    type: "overlay",
+    source: new ImageWMS({
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+        params: { 'LAYERS': 'gisgeoserver_19:Slovakia_average_pm10_2022' }
+    }),
+    visible: false,
+});
+
+
 
 // Add the layer groups code here:
 let basemapLayers = new Group({
@@ -111,9 +136,11 @@ let overlayLayers = new Group({
         Slovakia_LC_reclassiffied_2022,
         Slovakia_average_no2_2022,
         Slovakia_no2_concentration_map_2020,
-        Slovak_CAMS_pm25_2022_12,
         Slovak_pm25_concentration_map_2020,
-        SLOVAKIA_pm10_concentration_map_2020
+        SLOVAKIA_pm10_concentration_map_2020,
+        SLOVAKIA_pm10_concentration_map_2022,
+        bivariateatatis
+
     ]
 });
 
@@ -224,25 +251,13 @@ let wfsLayer = new Vector({
     })
 });
 
-// Finally the call to the WFS service:
-fetch(wfsUrl)
-.then((response) => {
-    if (!response.ok) {
-        throw new Error('Error ' + response.statusText);
-    }
-    response.json().then(data => {
-        wfsSource.addFeatures(
-	    new GeoJSON().readFeatures(data)
-	);
-    })
-});
-overlayLayers.getLayers().extend([wfsLayer]);
 
 // Add the local static GeoJSON layer here:
 let staticGeoJSONSource = new VectorSource({
     url: '../docs/geojson/Slovakia_adm2.geojson', 
     format: new GeoJSON()
 });
+
 let staticGeoJSONLayer = new Vector({
     title: "Slovakia County",
     source: staticGeoJSONSource,
@@ -256,7 +271,8 @@ let staticGeoJSONLayer = new Vector({
         })
     })
 });
-overlayLayers.getLayers().push(staticGeoJSONLayer);
+
+//overlayLayers.getLayers().push(staticGeoJSONLayer);
 
 // Add the popup code here:
 var container = document.getElementById('popup');
@@ -307,8 +323,12 @@ map.on('pointermove', function(event) {
     map.getTarget().style.cursor = hit ? 'pointer' : '';
 });
 
-// Add the legend code here:
-var legendHTMLString = '<ul>';
+
+
+
+
+
+
 function getLegendElement(title, color){
     return '<li>' + 
         '<span class="legend-color" style="background-color: ' + color + ' ">' + 
@@ -317,40 +337,43 @@ function getLegendElement(title, color){
         '</span></li>';
 }
 
-for(let overlayLayer of overlayLayers.getLayers().getArray()){
-    if(overlayLayer.getSource() instanceof ImageWMS){
-        var legendURLParams = {format: "application/json"};
-        var legendUrl = overlayLayer.getSource().getLegendUrl(0, legendURLParams);
-        // make the legend JSON request
-        await fetch(legendUrl).then(async (response) => {
-            await response.json().then((data) => {
-                var layerTitle = overlayLayer.get('title');
-                var layerSymbolizer = data["Legend"][0]["rules"][0]["symbolizers"][0];
-                var layerColor = null;
-                if("Polygon" in layerSymbolizer){
-                    layerColor = layerSymbolizer["Polygon"]["fill"];
-                } else if("Line" in layerSymbolizer){
-                    layerColor = layerSymbolizer["Line"]["stroke"];
-                }
-
-                if(layerColor != null){
-                    legendHTMLString += getLegendElement(layerTitle, layerColor);
-                }
-            });
-        });
-
-    } else {
-        var layerStyle = overlayLayer.getStyle();
-        var layerColor = layerStyle.getFill().getColor();
-        var layerTitle = overlayLayer.get('title');
-        legendHTMLString += getLegendElement(layerTitle, layerColor);
+async function updateLegend() {
+    let legendHTMLString = '<ul>';
+    for (let overlayLayer of overlayLayers.getLayers().getArray()) {
+        if (overlayLayer.getSource() instanceof ImageWMS && overlayLayer.getVisible()) {
+            // Instead of JSON, request the PNG image:
+            let legendUrl = overlayLayer.getSource().getLegendUrl();
+            let layerTitle = overlayLayer.get('title');
+            legendHTMLString += `<li>
+                <span>${layerTitle}</span><br>
+                <img src="${legendUrl}" style="max-width: 150px; border:1px solid #ccc; background:white;">
+                </li>`;
+        } else if (overlayLayer.getVisible()) {
+            let layerStyle = overlayLayer.getStyle();
+            let layerColor = layerStyle.getFill().getColor();
+            let layerTitle = overlayLayer.get('title');
+            legendHTMLString += getLegendElement(layerTitle, layerColor);
+        }
     }
+    legendHTMLString += "</ul>";
+    document.getElementById('legend-content').innerHTML = legendHTMLString;
 }
-// Finish building the legend HTML string
-var legendContent = document.getElementById('legend-content');
-legendHTMLString += "</ul>";
-legendContent.innerHTML = legendHTMLString;
+
+// Listen for visibility changes on each overlay layer
+for (let overlayLayer of overlayLayers.getLayers().getArray()) {
+    overlayLayer.on('change:visible', updateLegend);
+}
+
+// Update legend at startup
+updateLegend();
+
+
+
+
 
 // Add the layer groups to the map here, at the end of the script!
 map.addLayer(basemapLayers);
 map.addLayer(overlayLayers);
+
+
+
