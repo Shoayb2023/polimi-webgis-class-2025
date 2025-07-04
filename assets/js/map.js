@@ -146,7 +146,6 @@ let overlayLayers = new Group({
         Slovakia_LC_reclassiffied_2022,
         Slovakia_average_no2_2022,
         Slovakia_no2_concentration_map_2020,
-        Slovak_pm25_concentration_map_2020,
         SLOVAKIA_pm10_concentration_map_2020,
         SLOVAKIA_pm10_concentration_map_2022,
         bivariateatatis,
