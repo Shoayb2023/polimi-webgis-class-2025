@@ -8,7 +8,7 @@ Students are encouraged to fork and modify this template as much as they want.
 ## Installing
 Clone the repository using the command 
 ```sh
-git clone [https://github.com/Diuke/polimi-webgis-class-2025](https://github.com/Shoayb2023/polimi-webgis-class-2025)
+git clone https://github.com/Shoayb2023/polimi-webgis-class-2025
 ```
 
 Or fork the repository for having your own copy.
